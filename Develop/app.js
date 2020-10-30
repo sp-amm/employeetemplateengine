@@ -76,6 +76,37 @@ const questionsIntern = [
 
 ]
 
+    let employeeArray = [];
+
+function createManager(){
+    inquirer.prompt(questionsEmployee, questionsManager)
+        .then(function(data){
+            let name = data.name;
+            let email = data.email;
+            let id = data.id;
+            let office = data.office;
+        });
+    new 
+}
+
+function createEmployee(){
+    inquirer.prompt(questionsEmployeeType)
+    .then(function(data){
+        let employeetype = data.employeetype;
+    })
+    while(employeetype !=="No more Employees"){
+        
+    }
+    if(employeetype ==="Manager"){
+        inquirer.prompt(questionsEmployee)
+        .then(function(data){
+        let name = data.name;
+        let email = data.email;
+        let id = data.id;
+    })
+    }
+}
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
