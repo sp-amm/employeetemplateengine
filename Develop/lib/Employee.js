@@ -7,3 +7,5 @@ class Employee {
     this.email = email;
     }
 }
+
+module.exports = Employee;

@@ -40,13 +40,13 @@ const questionsEmployee = [
         type: "input",
         name: "email",
         message: "Enter Employee email."
-    }
+    },
 
     {
         type: "input",
         name: "id",
         message: "Enter Employee id."
-    }
+    },
 ]
 
 const questionsManager = [
@@ -76,20 +76,28 @@ const questionsIntern = [
 
 ]
 
-    let employeeArray = [];
+//Employee counter
+let i = 0;    
+
+let employeeArray = [];
 
 function createManager(){
     inquirer.prompt(questionsEmployee, questionsManager)
         .then(function(data){
-            let name = data.name;
-            let email = data.email;
-            let id = data.id;
-            let office = data.office;
+            id = data.id; 
+            name = data.name; 
+            email = data.email; 
+            office = data.office;
         });
-    new 
+           
+        new Manager (id, name, email, office);
+        console.log(Manager);
+        
+     employeeArray.push(Manager);
+     console.log(employeeArray); 
 }
 
-function createEmployee(){
+/* function createEmployee(){
     inquirer.prompt(questionsEmployeeType)
     .then(function(data){
         let employeetype = data.employeetype;
@@ -105,7 +113,7 @@ function createEmployee(){
         let id = data.id;
     })
     }
-}
+} */
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
