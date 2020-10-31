@@ -19,7 +19,7 @@ const questionsEmployeeType = [
 
     {
         type: "list",
-        message: "Choode type of employee.",
+        message: "Choose employee role.",
         name: "employeetype",
         choices: [
             "Manager",
@@ -82,21 +82,24 @@ let i = 0;
 
 let employeeArray = [];
 
-function createManager(){
-    inquirer.prompt(questionsEmployee, questionsManager)
-        .then(function(data){
+async function createManager(){
+    await inquirer.prompt(questionsEmployee);
+    await inquirer.prompt(questionsManager);
+    await function(data){
             id = data.id; 
             name = data.name; 
             email = data.email; 
             office = data.office;
-        });
+        };
            
-        new Manager (id, name, email, office);
+        this.employeeArray.push(new Manager (id, name, email, office));
         console.log(Manager);
         
-     employeeArray.push(Manager);
+
      console.log(employeeArray); 
 }
+
+createManager();
 
 /* function createEmployee(){
     inquirer.prompt(questionsEmployeeType)
