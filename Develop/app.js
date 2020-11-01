@@ -33,6 +33,12 @@ const questionsEmployeeType = [
 const questionsEmployee = [
     {
         type: "input",
+        name: "id",
+        message: "Enter Employee id."
+    },
+    
+    {
+        type: "input",
         name: "name",
         message: "Enter Employee name.",  
     },
@@ -43,11 +49,6 @@ const questionsEmployee = [
         message: "Enter Employee email."
     },
 
-    {
-        type: "input",
-        name: "id",
-        message: "Enter Employee id."
-    },
 ]
 
 const questionsManager = [
@@ -78,29 +79,42 @@ const questionsIntern = [
 ]
 
 //Employee counter
-let i = 0;    
+//let i = 0;    
 
-let employeeArray = [];
 
-async function createManager(){
-    await inquirer.prompt(questionsEmployee);
-    await inquirer.prompt(questionsManager);
-    await function(data){
-            id = data.id; 
-            name = data.name; 
-            email = data.email; 
-            office = data.office;
-        };
-           
-        this.employeeArray.push(new Manager (id, name, email, office));
-        console.log(Manager);
+let staffArray = [];
+
+
+
+function createEmployee(){
+    inquirer.prompt(questionsEmployee)
+    .then(function(data){
+        createManager(data);   
+    });   
+};
+
+function createManager(){
+    inquirer.prompt(questionsManager)
+    .then(function(response){
+        let m = new Manager(data.id, data.name, data.email, response.office,);
+        staffArray.push(m);
+        console.log(staffArray);
+    })
+    };
+
+     
         
+     
+         
 
-     console.log(employeeArray); 
-}
+createEmployee();
 
-createManager();
+ //console.log(staffArray);
+    
+ 
 
+/* addStaff(); */
+ 
 /* function createEmployee(){
     inquirer.prompt(questionsEmployeeType)
     .then(function(data){
