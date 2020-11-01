@@ -7,7 +7,7 @@ README.md
 A command line application that takes in information about employees and generates a HTML page displaying the data. The application prompts the user to enter information about team members. The user may enter any number of employees - Managers, Engineers, or Interns. Once user has entered all information the application will generate a HTML file that displays team information. Application passes all unit tests.
 
 Demonstration of application in use:
-<img src=assets/gif1.gif><img src=assets/gif2.gif>
+<img src=Assets/gif1.gif><img src=Assets/gif2.gif>
 
 ## Table of Contents:
 
