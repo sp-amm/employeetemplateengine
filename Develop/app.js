@@ -16,7 +16,6 @@ const render = require("./lib/htmlRenderer");
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 const questionsEmployeeType = [
-
     {
         type: "list",
         message: "Choose employee role.",
@@ -48,7 +47,6 @@ const questionsEmployee = [
         name: "email",
         message: "Enter Employee email."
     },
-
 ]
 
 const questionsManager = [
@@ -57,7 +55,6 @@ const questionsManager = [
         name: "office",
         message: "Enter office number."
     }
-
 ]
 
 const questionsEngineer = [
@@ -66,7 +63,6 @@ const questionsEngineer = [
         name: "github",
         message: "Enter github."
     }
-
 ]
 
 const questionsIntern = [
@@ -75,23 +71,29 @@ const questionsIntern = [
         name: "school",
         message: "Enter school."
     }
-
 ]
 
-
+//This array captures the employee objects.
 let staffArray = [];
 
+//This function calls the createEmployee function when user selects employee types and renders and writes the html page once the user has finished entering data and selects the no more employees option.
 function startBuild(){     
     inquirer.prompt(questionsEmployeeType)
     .then(function(answer){
         if(answer.employeetype === "No more Employees"){
-            console.log("Your website is complete.")
+            console.log("Your entries are being processed.")
+            let html = render(staffArray);
+            fs.writeFile("team.html", html, function(err){
+                if(err){return console.error(err)}
+                console.log("Your html page has been created.");
+            });
         }else{
         createEmployee(answer);
         }
     });
 };
 
+//This function asks the generic staff question and calls the functions specific to role type to colect the role specific data.
 function createEmployee(answer){
     inquirer.prompt(questionsEmployee)
     .then(function(data){
@@ -142,13 +144,15 @@ startBuild();
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-
+//I have put this in the startBuild function
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
+
+//I have put this code in the startBuild function
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
