@@ -78,14 +78,10 @@ const questionsIntern = [
 
 ]
 
-//Employee counter
-//let i = 0;    
-
 
 let staffArray = [];
 
-function startBuild(){
-            
+function startBuild(){     
     inquirer.prompt(questionsEmployeeType)
     .then(function(answer){
         if(answer.employeetype === "No more Employees"){
@@ -95,12 +91,6 @@ function startBuild(){
         }
     });
 };
-    /* inquirer.prompt(questionsEmployeeType)
-    .then(function(answer){
-        if(answer.employeetype === "Manager" || "Engineer" || "Intern"){
-            createEmployee(answer);
-        } */
-    
 
 function createEmployee(answer){
     inquirer.prompt(questionsEmployee)
@@ -123,8 +113,7 @@ function createManager(data){
         console.log(staffArray); 
         startBuild();
     })
-   
-    };
+};
 
 function createIntern(data){
     inquirer.prompt(questionsIntern)
@@ -134,8 +123,7 @@ function createIntern(data){
         console.log(staffArray);
         startBuild();
     })
-    
-    };
+};
     
 function createEngineer(data){
     inquirer.prompt(questionsEngineer)
@@ -144,41 +132,17 @@ function createEngineer(data){
         staffArray.push(e);
         console.log(staffArray);
         startBuild();
-    })
-    
-    };
-     
-         
+    }) 
+};
 
 startBuild();
 
- console.log(staffArray);
-    
- 
-
-/* addStaff(); */
- 
-/* function createEmployee(){
-    inquirer.prompt(questionsEmployeeType)
-    .then(function(data){
-        let employeetype = data.employeetype;
-    })
-    while(employeetype !=="No more Employees"){
-        
-    }
-    if(employeetype ==="Manager"){
-        inquirer.prompt(questionsEmployee)
-        .then(function(data){
-        let name = data.name;
-        let email = data.email;
-        let id = data.id;
-    })
-    }
-} */
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
