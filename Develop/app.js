@@ -93,7 +93,7 @@ function createEmployee(){
     });   
 };
 
-function createManager(){
+function createManager(data){
     inquirer.prompt(questionsManager)
     .then(function(response){
         let m = new Manager(data.id, data.name, data.email, response.office,);
