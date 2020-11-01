@@ -19,6 +19,10 @@ class Employee {
         return this.id;
     };
 
+    getRole(){
+        return "Employee";
+    }
+
 };
 
 module.exports = Employee;
