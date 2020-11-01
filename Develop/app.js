@@ -84,13 +84,35 @@ const questionsIntern = [
 
 let staffArray = [];
 
+function startBuild(){
+            
+    inquirer.prompt(questionsEmployeeType)
+    .then(function(answer){
+        if(answer.employeetype === "No more Employees"){
+            console.log("Your website is complete.")
+        }else{
+        createEmployee(answer);
+        }
+    });
+};
+    /* inquirer.prompt(questionsEmployeeType)
+    .then(function(answer){
+        if(answer.employeetype === "Manager" || "Engineer" || "Intern"){
+            createEmployee(answer);
+        } */
+    
 
-
-function createEmployee(){
+function createEmployee(answer){
     inquirer.prompt(questionsEmployee)
     .then(function(data){
+        if(answer.employeetype==="Manager"){
         createManager(data);   
-    });   
+        }else if(answer.employeetype==="Intern"){
+        createIntern(data);
+        }else{
+        createEngineer(data);
+        }    
+    });  
 };
 
 function createManager(data){
@@ -98,18 +120,39 @@ function createManager(data){
     .then(function(response){
         let m = new Manager(data.id, data.name, data.email, response.office,);
         staffArray.push(m);
-        console.log(staffArray);
+        console.log(staffArray); 
+        startBuild();
     })
+   
     };
 
-     
-        
+function createIntern(data){
+    inquirer.prompt(questionsIntern)
+    .then(function(response){
+        let i = new Intern(data.id, data.name, data.email, response.school,);
+        staffArray.push(i);
+        console.log(staffArray);
+        startBuild();
+    })
+    
+    };
+    
+function createEngineer(data){
+    inquirer.prompt(questionsEngineer)
+    .then(function(response){
+        let e = new Engineer(data.id, data.name, data.email, response.github,);
+        staffArray.push(e);
+        console.log(staffArray);
+        startBuild();
+    })
+    
+    };
      
          
 
-createEmployee();
+startBuild();
 
- //console.log(staffArray);
+ console.log(staffArray);
     
  
 
