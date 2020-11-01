@@ -112,7 +112,7 @@ function createManager(data){
     .then(function(response){
         let m = new Manager(data.id, data.name, data.email, response.office,);
         staffArray.push(m);
-        console.log(staffArray); 
+        //console.log(staffArray); 
         startBuild();
     })
 };
@@ -122,7 +122,7 @@ function createIntern(data){
     .then(function(response){
         let i = new Intern(data.id, data.name, data.email, response.school,);
         staffArray.push(i);
-        console.log(staffArray);
+        //console.log(staffArray);
         startBuild();
     })
 };
@@ -132,7 +132,7 @@ function createEngineer(data){
     .then(function(response){
         let e = new Engineer(data.id, data.name, data.email, response.github,);
         staffArray.push(e);
-        console.log(staffArray);
+        //console.log(staffArray);
         startBuild();
     }) 
 };
